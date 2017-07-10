@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>우리동네 예~체능!</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+
+    <!-- 네비게이션 바 -->
+    <nav class="white" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="index.php" class="brand-logo"><img class="logo" src="sources/logo.png" alt="logo"></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="nearlocation.php">주변 시설 찾기</a></li>
+                <li><a href="guest.php">게스트/번개모집</a></li>
+                <li><a href="#">교류전</a></li>
+                <li><a href="#">시설 등록</a></li>
+                <li class="font-black">&nbsp;|&nbsp;</li>
+                <li><a href="login/login_form.php">로그인</a></li>
+                <li><a href="#">내 정보</a></li>
+                <li><a href="login/logout.php">로그아웃</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="nearlocation.php">주변 시설 찾기</a></li>
+                <li><a href="guest.php">게스트/번개모집</a></li>
+                <li><a href="#">교류전</a></li>
+                <li><a href="#">시설 등록</a></li>
+                <li><hr class="hr-login"></li>
+                <li><a href="login/login_form.php">로그인</a></li>
+                <li><a href="#">내 정보</a></li>
+                <li><a href="login/logout.php">로그아웃</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <!-- 네이게이션 바 종료 -->
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col s12 m4 l3" style="margin:30px auto;">
+
+                <div class="fixed-action-btn horizontal">
+                    <a href="#write_button" id="edit_tool" class="waves-effect waves-yellow btn-floating btn-large red pulse"><i class="large material-icons">mode_edit</i></a>
+                </div>
+
+                <div id="write_button" class="modal">
+                    <div class="modal-content">
+                        <div class="col s6">
+                            <label for="date">운동하실 날짜</label>
+                            <input type="date" class="datepicker" id="selected_time">
+                        </div>
+                        <div class="col s6">
+                            <label for="selected_region">운동하실 지역</label>
+                            <select class="browser-default" id="selected_region">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="강남구">강남구</option>
+                                <option value="강동구">강동구</option>
+                                <option value="강북구">강북구</option>
+                                <option value="강서구">강서구</option>
+                                <option value="관악구">관악구</option>
+                                <option value="광진구">광진구</option>
+                                <option value="구로구">구로구</option>
+                                <option value="금천구">금천구</option>
+                                <option value="노원구">노원구</option>
+                                <option value="도봉구">도봉구</option>
+                                <option value="동대문구">동대문구</option>
+                                <option value="동작구">동작구</option>
+                                <option value="마포구">마포구</option>
+                                <option value="서대문구">서대문구</option>
+                                <option value="서초구">서초구</option>
+                                <option value="성동구">성동구</option>
+                                <option value="성북구">성북구</option>
+                                <option value="송파구">송파구</option>
+                                <option value="양천구">양천구</option>
+                                <option value="영등포구">영등포구</option>
+                                <option value="용산구">용산구</option>
+                                <option value="은평구">은평구</option>
+                                <option value="종로구">종로구</option>
+                                <option value="중구">중구</option>
+                                <option value="중랑구">중랑구</option>
+                                
+                            </select>
+                            
+                        </div>
+                        <div class="col s12">
+                            <label for="subject">제목</label>
+                            <input placeholder="제목을 입력하세요" type="text" name="subject" id="subject" />
+                        </div>
+                        <div class="col s12">
+                            <label for="content">내용</label>
+                            <textarea placeholder="내용을 입력하세요" class="materialize-textarea" name="content" id="content" /></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="modal-action modal-close waves-effect waves-green btn-flat" onClick="handleSubmit()">등록하기</a>
+                    </div>
+                </div>
+
+
+                <div class="tap-target red accent-1 white-text" data-activates="edit_tool">
+                    <div class="tap-target-content">
+                        <div><h4 style="text-align:right;">글쓰기 버튼이<br/>여기 있습니다!</h4></div>
+                        <div><p>원하는 지역을 선택하고 지금 바로 운동을 시작하세요!</p></div>
+                    </div>
+                </div>
+
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <a class="black-text" href="#write_button"><div class="collapsible-header"><i class="material-icons">create</i>글쓰기</div></a>
+                    </li>
+                    
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">place</i>서울(강북)</div>
+                        <div class="collapsible-body">
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="gangbuk" value="강북구" />
+                                <label for="gangbuk">강북구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="gwangjin" value="광진구" />
+                                <label for="gwangjin">광진구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="nowon" value="노원구" />
+                                <label for="nowon">노원구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="dobong" value="도봉구" />
+                                <label for="dobong">도봉구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="dongdaemoon" value="동대문구" />
+                                <label for="dongdaemoon">동대문구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="mapogu" value="마포구" />
+                                <label for="mapogu">마포구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="seodaemun" value="서대문구" />
+                                <label for="seodaemun">서대문구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="seongdong" value="성동구" />
+                                <label for="seongdong">성동구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="seongbuk" value="성북구" />
+                                <label for="seongbuk">성북구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="yongsan" value="용산구" />
+                                <label for="yongsan">용산구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="eunpyeong" value="은평구" />
+                                <label for="eunpyeong">은평구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="jongno" value="종로구" />
+                                <label for="jongno">종로구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="jung" value="중구" />
+                                <label for="jung">중구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="jungnang" value="중구" />
+                                <label for="jungnang">중랑구</label>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header active"><i class="material-icons">whatshot</i>서울(강남)</div>
+                        <div class="collapsible-body">
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="gangnam" value="강남구" />
+                                <label for="gangnam">강남구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="gangdong" value="강동구" />
+                                <label for="gangdong">강동구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="gangseo" value="강서구" />
+                                <label for="gangseo">강서구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="gwanak" value="관악구" />
+                                <label for="gwanak">관악구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="guro" value="구로구" />
+                                <label for="guro">구로구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="geumcheon" value="금천구" />
+                                <label for="geumcheon">금천구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="dongjak" value="동작구" />
+                                <label for="dongjak">동작구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="seocho" value="서초구" />
+                                <label for="seocho">서초구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="songpa" value="송파구" />
+                                <label for="songpa">송파구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="yangcheon" value="양천구" />
+                                <label for="yangcheon">양천구</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" name="region[]" class="guest-region" id="yeongdeungpo" value="영등포구" />
+                                <label for="yeongdeungpo">영등포구</label>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header center">
+                            <p>
+                                <input type="checkbox" class="filled-in" id="filled-in-box" />
+                                <label for="filled-in-box">전체선택</label>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col s12 m8 l9" style="margin:30px auto;">
+                    <div class="row guest-list-card">
+
+                    </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <!-- <?php include "./sources/footer.html"; ?> -->
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row">
+                <div class="col l5 s12">
+                    <h5 class="white-text">NearSports</h5>
+                    <p class="grey-text text-lighten-4">이 사이트는 한성대학교 전자정보공학과 2017년 웹서버 프로그래밍 기말 프로젝트를 위해 만들어졌습니다. <br/>저희 6조 조원은 박주만(1193020), 이진희(1493076)이며, Web 개발은 박주만, Database 관리는 이진희가 맡아서 진행하였습니다.</p>
+                </div>
+                <div class="col offset-l1 l3 s12">
+                    <h5 class="white-text">관련 페이지</h5>
+                    <ul>
+                        <li><a class="white-text" href="http://www.hansung.ac.kr/web/www/home">한성대학교 홈페이지</a></li>
+                        <li><a class="white-text" href="http://www.hansung.ac.kr/web/dice">전자정보공학과 홈페이지</a></li>
+                        <li><a class="white-text" href="http://itsys.hansung.ac.kr">정성훈 교수님의 홈페이지</a></li>
+                        <li><a class="white-text" href="http://itsys.hansung.ac.kr/cgi-bin/kplus/board.php3?table=lec_webserverprog">웹서버 과목 게시판</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">참고사항</h5>
+                    <ul>
+                        <li><a class="white-text" href="https://www.w3schools.com/php/default.asp">W3Schools</a></li>
+                        <li><a class="white-text" href="http://materializecss.com">Materialize</a></li>
+                        <li><a class="white-text" href="https://developers.google.com/maps/web/?hl=ko">Google Maps</a></li>
+                        <li><a class="white-text" href="https://www.data.go.kr">공공데이터포털</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="brown-text text-lighten-3" href="https://www.facebook.com/juman.park.56">Juman Pak</a>&
+                        <a class="brown-text text-lighten-3" href="https://www.facebook.com/profile.php?id=100002007416879&fref=ts">Jinhee Lee</a>
+            </div>
+        </div>
+    </footer>
+
+    <!--  Scripts-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+
+    <script>
+        function toggle(source) {
+            var checkboxes = document.getElementsByName('region[]');
+            for (var i=0; i<checkboxes.length; i++) {
+                checkboxes[i].checked = source.checked;
+            }
+        }
+    </script>
+
+    <script>
+        $('#filled-in-box').bind('click', function() {
+            if($(this).is(":checked")) {    // 만약 체크가 되어 있다면 쿼리 실행
+                // checkbox is checked
+                // console.log('checked');
+                // console.log($(this).val());
+                var self = this;
+                $.ajax({
+                    method: 'GET',
+                    url: 'guest/list_query_all.php?region=',
+                    charset: "utf-8",
+                    success: function(data) {
+                        // console.log(data);
+                        parsedData = JSON.parse(data);
+                        // console.log(parsedData);
+                        var listLength = parsedData.length;
+                        for(var i=0; i<listLength; i++) {
+                            $(".guest-list-card").append(
+                                '<div class="card ' + 'post-id-' + $(self).val() + ' grey lighten-5 col z-depth-3 offset-s1 s10 offset-l2 l8">' +
+                                    '<div class="card-content black-text">' +
+                                        '<span class="card-title">'+ parsedData[i][0] +'</span>' +
+                                        '<p>' + parsedData[i][1] + '</p>' +
+                                    '</div>' +
+                                    '<div class="card-action">' +
+                                        '<a href="#">'+parsedData[i][2]+'</a>' +
+                                        '<a href="#"></a>' +
+                                    '</div>' +
+                                '</div>');
+                        }
+                    }
+                });
+            } else {    // 만약 체크가 되어 있지 않다면 클래스에 post-id-가 붙은 개체들을 삭제
+                // console.log("unchecked??");
+                // console.log('.post-id-' + $(this).val());
+                $('.post-id-' + $(this).val()).remove();
+                // checkbox is not checked
+            }
+        });
+
+        $('.guest-region').bind('click', function() {
+            if($('#filled-in-box').is(":checked")) {
+                $('#filled-in-box').removeAttr("checked");
+            }
+
+            if($(this).is(":checked")) {
+                // checkbox is checked
+                // console.log('checked');
+                // console.log($(this).val());
+                var self = this;
+                $.ajax({
+                    method: 'GET',
+                    url: 'guest/list_query.php?region=' + $(this).val(),
+                    charset: "utf-8",
+                    success: function(data) {
+                        // console.log(data);
+                        var parsedData = JSON.parse(data);
+                        // console.log(parsedData);
+                        if(parsedData) {
+                            var listLength = parsedData.length;
+                            for(var i=0; i<listLength; i++) {
+                                $(".guest-list-card").append(
+                                    '<div class="card ' + 'post-id-' + $(self).val() + ' grey lighten-5 z-depth-3 col offset-s1 s10 offset-l2 l8">' +
+                                    '<div class="card-content black-text">' +
+                                    '<span class="card-title">' + parsedData[i][0] + '</span>' +
+                                    '<p>' + parsedData[i][1] + '</p>' +
+                                    '</div>' +
+                                    '<div class="card-action">' +
+                                    '<a href="#">'+parsedData[i][2]+'</a>' +
+                                    '<a href="#"></a>' +
+                                    '</div>' +
+                                '</div>');
+                            }
+                        }
+                        
+                    }
+                });
+            } else {
+                // console.log("unchecked??");
+                // console.log('.post-id-' + $(this).val());
+                $('.post-id-' + $(this).val()).remove();
+                // checkbox is not checked
+            }
+        });
+
+        // function listquery() {
+        //     var region = [];
+        //     $.ajax({
+        //         method: 'GET',
+        //         url: 'guest/list_query.php',
+        //         data: {
+        //             region_request: region,
+        //         },
+        //         charset: "utf-8",
+        //         success: function(data) {
+        //             console.log(data);
+        //             if(data == "0") {
+        //                 alert("이메일을 입력해주세요.");
+        //             } else if(data == "1") {
+        //                 alert("이메일 형식을 확인해주세요.");
+        //             } else if(data == "2") {
+        //                 alert("비밀번호를 입력해주세요.");
+        //             } else if(data == "3") {
+        //                 alert("비밀번호 형식을 확인해주세요.");
+        //             } else if(data == "4") {
+        //                 console.log("쿼리 결과 없음");
+        //                 alert("아이디와 비밀번호를 확인하세요.");
+        //             } else if(data == "5") {
+        //                 console.log("쿼리 실패");
+        //                 alert("오류 발생 \n관리자에게 문의하세요.");
+        //             } else {
+        //                 alert("환영합니다!");
+        //                 window.location = "../";
+        //             }
+        //         }
+        //     });
+        // }
+    </script>
+
+    <script>
+
+        $( document ).ready(function() {
+            $('.tap-target').tapTarget('open');    
+        });
+        
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+        });
+
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+            
+
+        $('#content').trigger('autoresize');
+
+
+    </script>
+    
+    <script>
+        function handleSubmit() {
+            var region = $('#selected_region').val();
+            var day = $('#selected_time').val();
+            var subject = $('#subject').val();
+            var content = $('#content').val();
+
+            $.ajax({
+                method: 'POST',
+                url: 'guest/insert_guest.php',
+                data: {
+                    region: region,
+                    day: day,
+                    subject: subject,
+                    content: content,
+                },
+                charset: "utf-8",
+                success: function(data) {
+
+                    console.log(data);
+                    
+                    if(data == 0) {
+                        alert("먼저 로그인 하세요.");
+                        window.location = "./login.php";
+                    } else if(data == 1) {
+                        alert("지역을 입력해주세요.");
+                    } else if(data == 2) {
+                        alert("날짜를 입력해주세요.");
+                    } else if(data == 3) {
+                        alert("제목을 입력해주세요.");
+                    } else if(data == 4) {
+                        alert("내용을 입력해주세요.");
+                    } else if(data == 5) {
+                        console.log("닉네임 찾기 쿼리 실패");
+                        alert("오류 발생 \n관리자에게 문의하세요.");
+                        window.location = "./guest.php";
+                    } else if(data == 6) {
+                        console.log("삽입 실패");
+                        alert("오류 발생 \n관리자에게 문의하세요.");
+                        window.location = "./guest.php";
+                    } else {
+                        alert("글 작성이 완료되었습니다!");
+                        // window.location = "./guest.php";
+                    }
+                    
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
