@@ -260,7 +260,41 @@
 
 
     <!-- Footer -->
-    <?php include "./sources/footer.html"; ?> 
+    <!-- <?php include "./sources/footer.html"; ?> -->
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row">
+                <div class="col l5 s12">
+                    <h5 class="white-text">NearSports</h5>
+                    <p class="grey-text text-lighten-4">이 사이트는 한성대학교 전자정보공학과 2017년 웹서버 프로그래밍 기말 프로젝트를 위해 만들어졌습니다. <br/>저희 6조 조원은 박주만(1193020), 이진희(1493076)이며, Web 개발은 박주만, Database 관리는 이진희가 맡아서 진행하였습니다.</p>
+                </div>
+                <div class="col offset-l1 l3 s12">
+                    <h5 class="white-text">관련 페이지</h5>
+                    <ul>
+                        <li><a class="white-text" href="http://www.hansung.ac.kr/web/www/home">한성대학교 홈페이지</a></li>
+                        <li><a class="white-text" href="http://www.hansung.ac.kr/web/dice">전자정보공학과 홈페이지</a></li>
+                        <li><a class="white-text" href="http://itsys.hansung.ac.kr">정성훈 교수님의 홈페이지</a></li>
+                        <li><a class="white-text" href="http://itsys.hansung.ac.kr/cgi-bin/kplus/board.php3?table=lec_webserverprog">웹서버 과목 게시판</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">참고사항</h5>
+                    <ul>
+                        <li><a class="white-text" href="https://www.w3schools.com/php/default.asp">W3Schools</a></li>
+                        <li><a class="white-text" href="http://materializecss.com">Materialize</a></li>
+                        <li><a class="white-text" href="https://developers.google.com/maps/web/?hl=ko">Google Maps</a></li>
+                        <li><a class="white-text" href="https://www.data.go.kr">공공데이터포털</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="brown-text text-lighten-3" href="https://www.facebook.com/juman.park.56">Juman Pak</a>&
+                        <a class="brown-text text-lighten-3" href="https://www.facebook.com/profile.php?id=100002007416879&fref=ts">Jinhee Lee</a>
+            </div>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
@@ -336,6 +370,8 @@
 
     </script>
 
+    <!-- 데이터베이스에 저장된 정보를 마커 객체로 가져옴 -->
+    <!--
     <?php
         if($_SESSION['list'] && $_SESSION['count']) {
             $list = $_SESSION['list'];
@@ -363,6 +399,7 @@
                     </script>");
         }
     ?>
+    -->
 
     <script>
 
