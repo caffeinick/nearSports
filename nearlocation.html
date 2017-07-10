@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>우리동네 예~체능!</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+
+<!-- <?php include "./sources/navbar.php"; ?> -->
+
+<div class="container z-depth-1">
+    
+    <div class="row" style="margin:10px auto 30px auto">
+
+        <div class="col s12">                                       <!-- 탭 선택 영역 시작 -->
+            <ul class="tabs">
+                <li class="tab col s6 offset-l2 l4"><a href="#tab_1">지역선택</a></li>
+                <li class="tab col s6 l4 disabled"><a href="#tab_2">지도</a></li>
+            </ul>
+        </div>                                                      <!-- 탭 선택 영역 끝 -->
+
+        <div id="tab_1" class="col s12" style="padding:20px">       <!-- 지역선택 탭 시작 -->
+            <div class="container">
+
+                <div class="col s12">
+                    <ul class="collapsible" data-collapsible="accordion" style="margin: 30px 0;"> <!-- 서울 지도 보기 -->
+                        <li>
+                            <div class="collapsible-header active"><i class="material-icons">help</i>서울지도</div>
+                            <div class="collapsible-body center"><span><a href="#modal1"><img class="responsive-img" src="sources/seoul_map.gif"></a></img></span></div>
+                            <div id="modal1" class="modal">
+                                <div class="modal-content center">
+                                    <h4>Map of Seoul City</h4>
+                                    <img src="sources/seoul_map.gif"></img>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">확인</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>                                                  <!-- 서울 지도 보기 -->
+
+                <form action="nearlocation/locquery.php" method="GET" name="region_select">
+
+                    <div class="col s12 m6">
+                        <ul class="collapsible" data-collapsible="accordion"> 
+                            <li>
+                                <div class="collapsible-header">        <!-- 서울 강북권 시작 -->
+                                    <i class="material-icons">filter_drama</i>서울(강북권)
+                                </div>
+                                <div class="collapsible-body">
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="gangbuk" value="강북구" />
+                                        <label for="gangbuk">강북구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="gwangjin" value="광진구" />
+                                        <label for="gwangjin">광진구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="nowon" value="노원구" />
+                                        <label for="nowon">노원구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="dobong" value="도봉구" />
+                                        <label for="dobong">도봉구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="dongdaemoon" value="동대문구" />
+                                        <label for="dongdaemoon">동대문구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="mapogu" value="마포구" />
+                                        <label for="mapogu">마포구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="seodaemun" value="서대문구" />
+                                        <label for="seodaemun">서대문구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="seongdong" value="성동구" />
+                                        <label for="seongdong">성동구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="seongbuk" value="성북구" checked="checked" />
+                                        <label for="seongbuk">성북구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="yongsan" value="용산구" />
+                                        <label for="yongsan">용산구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="eunpyeong" value="은평구" />
+                                        <label for="eunpyeong">은평구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="jongno" value="종로구" />
+                                        <label for="jongno">종로구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="jung" value="중구" />
+                                        <label for="jung">중구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="jungnang" value="중구" />
+                                        <label for="jungnang">중랑구</label>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>                                              <!-- 서울 강북권 종료 -->
+
+                    <div class="col s12 m6 l6">                         <!-- 서울 강남권 시작 -->
+                        <ul class="collapsible" data-collapsible="accordion"> 
+                            <li>
+                                <div class="collapsible-header">
+                                    <i class="material-icons">filter_drama</i>서울(강남권)
+                                </div>
+                                <div class="collapsible-body">
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="gangnam" value="강남구" />
+                                        <label for="gangnam">강남구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="gangdong" value="강동구" />
+                                        <label for="gangdong">강동구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="gangseo" value="강서구" />
+                                        <label for="gangseo">강서구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="gwanak" value="관악구" />
+                                        <label for="gwanak">관악구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="guro" value="구로구" />
+                                        <label for="guro">구로구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="geumcheon" value="금천구" />
+                                        <label for="geumcheon">금천구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="dongjak" value="동작구" />
+                                        <label for="dongjak">동작구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="seocho" value="서초구" />
+                                        <label for="seocho">서초구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="songpa" value="송파구" />
+                                        <label for="songpa">송파구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="yangcheon" value="양천구" />
+                                        <label for="yangcheon">양천구</label>
+                                    </p>
+                                    <p>
+                                        <input type="checkbox" name="region[]" id="yeongdeungpo" value="영등포구" />
+                                        <label for="yeongdeungpo">영등포구</label>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>                                              <!-- 서울 강남권 종료 -->
+
+                    <div class="col s12" style="margin:50px auto">      <!-- 제출 버튼!! -->
+                        <!-- Switch -->
+                        <span class="left">전체 선택</span>
+                        <span class="switch left">
+                            <label><input type="checkbox" onClick="toggle(this)" /><span class="lever"></span></label>
+                        </span>
+                        <button id="tool" class="btn waves-effect waves-light pulse right" type="submit" name="action">확인
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>                                                <!-- 지역선택 탭 컨테이너 종료 -->
+
+        </div>                                                  <!-- 지역선택 탭 종료 -->
+        
+        
+
+        <div id="tab_2" >                                       <!-- 지도 탭 시작 -->
+
+        
+            <div class="col s12" style="padding: 30px 10px;">
+
+                <!-- 지도 영역 -->
+                <div id="map" class="z-depth-2" style="width:95%;height:500px;position:relative;overflow:hidden;margin:0 2.5%;"></div> 
+
+
+                <!-- 지도 도구 -->
+
+                <div class="tap-target red accent-1 white-text" data-activates="setting_tool">
+                    <div class="tap-target-content">
+                        <div><h4 style="text-align:right;">지도 관련 도구가<br/>여기 있습니다!</h4></div>
+                        <div><p>일반/위성지도, 확대/축소기능을 사용해보세요!</p></div>
+                    </div>
+                </div>
+
+                <div class="fixed-action-btn horizontal">
+                    <a id="setting_tool" class="btn-floating btn-large red pulse">
+                        <i class="waves-effect waves-yellow material-icons pulse">settings</i>
+                    </a>
+                    <ul>
+                        <li><a class="waves-effect btn-floating red" onclick="setMapType('roadmap')"><i class="material-icons">map</i></a></li>
+                        <li><a class="waves-effect btn-floating yellow darken-1" onclick="setMapType('skyview')"><i class="material-icons">flight</i></a></li>
+                        <li><a class="waves-effect btn-floating green" onclick="zoomIn()"><i class="material-icons">add</i></a></li>
+                        <li><a class="waves-effect btn-floating blue" onclick="zoomOut()"><i class="material-icons">remove</i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>                                                  <!-- 지도 탭 종료 -->
+
+    </div>
+</div>
+
+
+
+    <!-- Footer -->
+    <?php include "./sources/footer.html"; ?> 
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            // modal
+            $('.modal').modal();
+
+            // toast
+            var isClass = $("#tab_1").hasClass("active");
+            if(isClass) {
+                Materialize.toast("지역 선택 후 확인을 눌러주세요", 4000);
+            }
+        });
+
+        function toggle(source) {
+            var checkboxes = document.getElementsByName('region[]');
+            for (var i=0; i<checkboxes.length; i++) {
+                checkboxes[i].checked = source.checked;
+            }
+        }
+
+        $( document ).ready(function() {
+            $('.tap-target').tapTarget('open');    
+        });
+        
+    </script>
+
+    <script src="//apis.daum.net/maps/maps3.js?apikey=51e58d6cdfaaa3f1d8b61c7b2878bc31&libraries=services,clusterer,drawing"></script>
+    <script>
+        var container = document.getElementById('map');
+		var options = {
+		    center: new daum.maps.LatLng(37.566583, 126.978451),
+		    level: 8
+        };
+
+        var map = new daum.maps.Map(container, options);
+
+        function setMapType(maptype) { 
+            var roadmapControl = document.getElementById('btnRoadmap');
+            var skyviewControl = document.getElementById('btnSkyview'); 
+            if (maptype === 'roadmap') {
+                map.setMapTypeId(daum.maps.MapTypeId.ROADMAP);    
+                // roadmapControl.className = 'selected_btn';
+                // skyviewControl.className = 'btn';
+            } else {
+                map.setMapTypeId(daum.maps.MapTypeId.HYBRID);    
+                // skyviewControl.className = 'selected_btn';
+                // roadmapControl.className = 'btn';
+            }
+        }
+
+        // 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+        function zoomIn() {
+            map.setLevel(map.getLevel() - 1);
+        }
+        
+        // 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+        function zoomOut() {
+            map.setLevel(map.getLevel() + 1);
+        }
+
+        // 표시할 마커 지정
+        var positions = [
+            {
+                title: '', 
+                latlng: new daum.maps.LatLng('', '')
+            }
+        ];
+
+    </script>
+
+    <?php
+        if($_SESSION['list'] && $_SESSION['count']) {
+            $list = $_SESSION['list'];
+            $count = $_SESSION['count'];
+
+            
+            echo (" <script>
+                        var list = [];
+                        list = $list;
+                        count = $count;
+
+                        var positions = [
+                            {
+                                title: '".$list[0][0]."',".
+                                "latlng: new daum.maps.LatLng(".$list[0][1].", ".$list[0][2].")
+                            }");
+            for ($i=1; $i<$count; $i++) {
+                echo (      ",
+                            {
+                                title: '".$list[$i][0]."',".
+                                "latlng: new daum.maps.LatLng(".$list[$i][1].", ".$list[$i][2].")
+                            }");
+            }
+            echo ("     ]
+                    </script>");
+        }
+    ?>
+
+    <script>
+
+    // 마커 이미지의 이미지 주소입니다
+    var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+
+    
+    for (var i = 0; i < positions.length; i ++) {
+        
+        // 마커 이미지의 이미지 크기 입니다
+        var imageSize = new daum.maps.Size(24, 35); 
+
+        // 마커 이미지를 생성합니다    
+        var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize); 
+
+        // 마커를 생성합니다
+        var marker = new daum.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: positions[i].latlng, // 마커를 표시할 위치
+            // content : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+            image : markerImage // 마커 이미지 
+        });
+        
+        marker.setMap(map);
+
+        var iwContent = [];
+        iwContent[i] = '<div><div class="teal white-text center" style="padding:10px; width:180px; font-size:11px;">'+ positions[i].title + '<br/></div></div>';
+
+        // 인포윈도우를 생성합니다
+        var infowindow = new daum.maps.InfoWindow({
+            content : iwContent[i]
+        });
+
+
+        // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+        // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+        // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+        daum.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+        daum.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+
+        // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+        function makeOverListener(map, marker, infowindow) {
+            return function() {
+                infowindow.open(map, marker);
+            };
+        }
+
+        // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+        function makeOutListener(infowindow) {
+            return function() {
+                infowindow.close();
+            };
+        }
+    }
+    
+
+    </script>
+
+
+</body>
+
+</html>
