@@ -14,10 +14,6 @@
 
 <body>
 
-
-<!--  test   -->
-
-
 <!-- <?php include "./sources/navbar.php"; ?> -->
     <!-- 네비게이션 바 -->
     <nav class="white" role="navigation">
