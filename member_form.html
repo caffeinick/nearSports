@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+  <title>우리동네 예체능 회원가입</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    body {
+      background: #fff;
+    }
+
+    .input-field input[type=date]:focus + label,
+    .input-field input[type=text]:focus + label,
+    .input-field input[type=email]:focus + label,
+    .input-field input[type=password]:focus + label {
+      color: #e57373;
+    }
+
+    .input-field input[type=date]:focus,
+    .input-field input[type=text]:focus,
+    .input-field input[type=email]:focus,
+    .input-field input[type=password]:focus {
+      border-bottom: 2px solid #e57373;
+      box-shadow: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="section"></div>
+  <main>
+    <center>
+      <a href="index.html"><img class="loginlogo" src="sources/logo.png" alt="logo"></a>
+      <div class="section"></div>
+
+      <h5 class="teal-text">회원가입 하시면 우리동네 예체능의<br>모든 서비스를 받을 수 있습니다.</h5>
+      <div class="section"></div>
+
+      <div class="container limit-size">
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 16px 24px 0px 24px; border: 1px solid #EEE;">
+          <div class="col s12">
+            <div class="row">
+              <div class="col s12">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s8 m8">
+                <input class="validate" type="email" name="email" id="email" />
+                <label id="email-label" for="email" data-error="올바르지 않은 이메일입니다.">이메일 주소</label>
+              </div>
+              <div class="input-field col s4 m4">
+                <a class="waves-effect waves-light btn" id="email-button" onClick="checkEmail()">확인</a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="password" name="password" id="password" />
+                <label for="password">비밀번호</label>
+              </div>
+              <div class="input-field col s12">
+                <input type="password" name="password" id="repassword" />
+                <label for="password">비밀번호 확인</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s8 m8">
+                <input type="text" name="name" id="nickname" />
+                <label for="nickname">닉네임</label>
+              </div>
+              <div class="input-field col s4 m4">
+                <a class="waves-effect waves-light btn" id="nickname-button" onClick="checkNickname()">확인</a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <select name="gender" id="gender">
+                  <option value="male">남자</option>
+                  <option value="female">여자</option>
+                </select>
+                <label for="gender">성별</label>
+              </div>
+              <div class="input-field col s6">
+                <select name="position" id="position">
+                  <option value="guard">가드</option>
+                  <option value="forward">포워드</option>
+                  <option value="center">센터</option>
+                </select>
+                <label for="gender">포지션</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <p class="input-field col s1">키</p>
+              <p class="range-field col s11">
+                <input type="range" name="height" id="height" min="140" max="210" />
+              </p>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <select id="city" disabled>
+                  <option value="seoul">서울특별시</option>
+                  <option value="incheon">인천광역시</option>
+                </select>
+                <label for="region">지역(선택사항)</label>
+              </div>
+              <div class="input-field col s6">
+                <input type="text" id="region" class="autocomplete" />
+                <label for="region">구(선택사항)</label>
+              </div>
+            </div>
+            <br/>
+          </div>
+            <div class="row">
+                <button class="btn waves-effect waves-light right disabled" id="submit-button" onClick="handleSubmit()">제출하기
+                  <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+      </div>
+    </center>
+
+    <div class="section"></div>
+    <div class="section"></div>
+  </main>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  <script>
+     $(document).ready(function() {
+        $("select").material_select();
+        $("input.autocomplete").autocomplete({
+          data: {
+            "강남구": null,
+            "강동구": null,
+            "강북구": null,
+            "강서구": null,
+            "관악구": null,
+            "광진구": null,
+            "구로구": null,
+            "금천구": null,
+            "노원구": null,
+            "도봉구": null,
+            "동대문구": null,
+            "동작구": null,
+            "마포구": null,
+            "서대문구": null,
+            "서초구": null,
+            "성동구": null,
+            "성북구": null,
+            "송파구": null,
+            "양천구": null,
+            "영등포구": null,
+            "용산구": null,
+            "은평구": null,
+            "종로구": null,
+            "중구": null,
+            "중랑구": null,
+          },
+          limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+          onAutocomplete: function(val) {
+            // Callback function when value is autcompleted.
+          },
+          minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+  });
+    });
+  </script>
+
+  <script>
+    var email_check = 0;
+    var nickname_check = 0;
+
+    function submit_button_check() {
+      if(email_check && nickname_check == 1) {
+        $('#submit-button').removeClass("disabled");
+      }
+    }
+
+    function checkEmail() {
+      var emailAddress = $('#email').val();
+      $.ajax({
+        method: 'POST',
+        url: './member_email_check.php',
+        data: {email: emailAddress},
+        charset: "utf-8",
+        success: function(data) {
+          console.log(data);
+          if(data == 0) {
+            alert("이메일을 입력해주세요.");
+          } else if(data == 1) {
+            alert("올바른 이메일 형식으로 입력해주세요.");
+          } else if(data == 2) {
+            console.log("쿼리 성공");
+          } else if(data == 23) {
+            console.log("결과 1개 이상");
+            alert("다른 이메일을 입력해주세요.");
+          } else if(data == 24) {
+            alert("사용할 수 있는 이메일입니다.");
+            $('#email-button').addClass("disabled");
+            $('#email').addClass("disabled");
+            email_check = 1;
+            submit_button_check();
+          } else {
+            alert(data);
+          }
+        }
+      });
+    }
+    function checkNickname() {
+      var nickName = $('#nickname').val();
+      $.ajax({
+        method: 'POST',
+        url: './member_nickname_check.php',
+        data: {nickname: nickName},
+        charset: "utf-8",
+        success: function(data) {
+          console.log(data);
+          if(data == "0") {
+            alert("닉네임이 이미 존재합니다.");
+          } else if(data == 1) {
+            alert("올바른 닉네임 형식으로 입력해주세요.");
+          } else if(data == 2) {
+            console.log("쿼리 성공");
+          } else if(data == 23) {
+            console.log("결과 1개 이상");
+            alert("다른 닉네임을 입력해주세요.");
+          } else if(data == 24) {
+            alert("사용할 수 있는 닉네임입니다.");
+            $('#nickname-button').addClass("disabled");
+            $('#nickname').addClass("diabled");
+            nickname_check = 1;
+            submit_button_check();
+          } else {
+            alert(data);
+          }
+        }
+      });
+    }
+    function handleSubmit() {
+      var email = $('#email').val();
+      var password = $('#password').val();
+      var repassword = $('#repassword').val();
+      var nickname = $('#nickname').val();
+      var gender = $('#gender').val();
+      var position = $('#position').val();
+      var height = $('#height').val();
+      var city = $('#city').val();
+      var region = $('#region').val();
+      $.ajax({
+        method: 'POST',
+        url: './member_check.php',
+        data: {
+          email: email,
+          password: password,
+          repassword: repassword,
+          nickname: nickname,
+          gender: gender,
+          position: position,
+          height: height,
+          city: city,
+          region: region
+        },
+        charset: "utf-8",
+        success: function(data) {
+          if(email_check && nickname_check !== 1) {
+            console.log("이메일 or 패스워드 입력 오류");
+          } else {
+            console.log(data);
+            if(data == 0) {
+              alert("패스워드를 입력해주세요.");
+            } else if(data == 1) {
+              alert("올바른 패스워드 형식으로 입력해주세요.");
+            } else if(data == 2) {
+              console.log("쿼리 성공");
+              window.location = "../";
+              alert("환영합니다!");
+            } else if(data == 3) {
+              alert("패스워드가 일치하지 않습니다.");
+            } else {
+              alert(data);
+            }
+          }
+        }
+      });
+    }
+  </script>
+
+  
+  
+</body>
+
+</html>
